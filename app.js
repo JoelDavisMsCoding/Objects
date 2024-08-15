@@ -114,12 +114,11 @@ let movies =
     { title: "Me Before You", genre: "Romance", rating: 5 },
     { title: "Equalizer", genre: "thriller", rating: 9 }
 ]
-function AddMovie(newMovie)
+function AddMovie(title, genre, rating)
 {
-    movies.push(newMovie)
+    movies.push({ title: title, genre: genre, rating: rating })
 }
-AddMovie({ title: "Harry Potter", genre: "fantasy", rating: 3 });
-console.log(movies);
+AddMovie("Space Jam", "Fantasy", 6);
 
 function RateMovie(title, newRating)
 {
@@ -172,66 +171,3 @@ let availableBks = BksAvailable();
 let unAvailable = BksUnAvailable();
 console.log(availableBks);
 console.log(unAvailable);
-
-//Classes
-class Car
-{
-    constructor(make, model,)
-    {
-        this.make = "";
-        this.model = "";
-        this. speed = 0;
-    }
-
-    Accelerate(mph)
-    {
-        this.speed += mph;
-        console.log(`MPH: ${this.speed}`);
-    }
-    Break(mph)
-    {
-        this.speed -= mph
-        console.log(`MPH: ${this.speed}`);
-    }
-}
-const mustang = new Car();
-mustang.Accelerate(35);
-mustang.Break(10);
-
-class Employee
-{
-    constructor(name, title, catchPhrase)
-    {
-        this.name = name, this.title = title, this.catchPhrase = catchPhrase;
-    }
-    Introduce()
-    {
-        console.log(`Hi I am ${this.name}, I am a ${this.title}, ${this.catchPhrase}`)
-    }
-}
-class Animal
-{
-    speak()
-    {
-        console.log("some animal noise");
-    }
-    nap()
-    {
-        console.log("zzz");
-    }
-}
-class Dog extends Animal
-{
-    speak()
-    {console.log("bark");}
-}
-class Cat extends Animal
-{
-    speak()
-    {console.log("meow");}
-}
-speak();
-function speak()
-{
-    console.log("speak override");
-}
