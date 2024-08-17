@@ -6,7 +6,7 @@ let favoriteCharacter =
     occupations: ["Drill Seargent", "Painting", "TV Personality"],
     age: 52,
     currentHealth: "Deceased",
-}
+};
 //Calling the entire object
 console.log(favoriteCharacter);
 //Calling one the the property values
@@ -47,12 +47,13 @@ let contactBook =
     { name: "Scott", number: "228-367-2475", email: "Scott@gmail.com" },
     { name: "Cindy", number: "601-445-3645", email: "Cindy@gmail.com" },
     { name: "Grace", number: "225-579-4242", email: "Gracey@gmail.com" }
-]
-function AddContact(newContact) //Add a Contact Method
+];
+function AddContact(ctcName, ctcNumber, ctcEmail) //Add a Contact Method
 {
-    contactBook.push(newContact);
+    let contactObject = { name: ctcName, number: ctcNumber, email: ctcEmail }; //ctcName is the name I/the user will enter 
+    contactBook.push(contactObject);
 }
-AddContact({name: "Joel", number: "601-660-0158", email: "joel.davis@mscoding.org"})
+AddContact("Joel", "601-660-0158", "joel.davis@mscoding.org")
 console.log(contactBook);
 
 function ViewAllContacts() //View all Contacts Method
@@ -63,7 +64,7 @@ function SearchByName(contactName) //SearchByName
 {
     for (i = 0; i < contactBook.length; i++)
     {
-        if (contactName == contactBook[i].name) {console.log(contactBook[i]);}
+        if (contactName.toUpperCase() == contactBook[i].name.toUpperCase()) {console.log(contactBook[i]);}
     }
 }
 SearchByName("Cindy");
@@ -76,7 +77,7 @@ let students =
     { name: "Charlie", grade: 92 },
     { name: "David", grade: 63 },
     { name: "Eve", grade: 78 }
-]
+];
 function GradeAverage()
 {
     let average = 0;
@@ -105,7 +106,7 @@ function BelowAverage()
 }
 BelowAverage();
 
-//Book Tracker
+//Movie Tracker
 let movies =
 [
     { title: "Fast 2 Furious", genre: "action", rating: 10 },
@@ -113,10 +114,10 @@ let movies =
     { title: "Step Brothers", genre: "comedy", rating: 8 },
     { title: "Me Before You", genre: "Romance", rating: 5 },
     { title: "Equalizer", genre: "thriller", rating: 9 }
-]
+];
 function AddMovie(title, genre, rating)
 {
-    movies.push({ title: title, genre: genre, rating: rating })
+    movies.push({ title: title, genre: genre, rating: rating });
 }
 AddMovie("Space Jam", "Fantasy", 6);
 
@@ -171,3 +172,71 @@ let availableBks = BksAvailable();
 let unAvailable = BksUnAvailable();
 console.log(availableBks);
 console.log(unAvailable);
+
+//Recipe
+let recipes =
+[
+    { title: "Pancakes", ingredients: ["Flour", "Eggs", "Milk"], instructions: "Mix and cook on a griddle." },
+    { title: "Salad", ingredients: ["Lettuce", "Tomatoes", "Cucumbers"], instructions: "Chop and toss with dressing." }
+];
+function Display(AnyDataYouChoose)
+{
+    console.log(AnyDataYouChoose);
+}
+function AddRecipe(title, ingredients, instructions)
+{
+    recipes.push({title: title, ingredients: ingredients, instructions: instructions});
+}
+AddRecipe("omelette", ["eggs", "butter", "milk", "cooking oil"], "Crack eggs in a bowl, add milk, and whisk until yolks break.");
+
+function UpDateInstructions(recipeTitle, newInstructions )
+{
+    for (let i = 0; i < recipes.length; i++)
+    {
+        if (recipes[i].title == recipeTitle)
+        {recipes[i].instructions = newInstructions};
+    }
+}
+UpDateInstructions("Pancakes", "Add all ingredients then mix thoroughly.")
+Display(recipes);
+
+//Car Dealership Inventory
+let cars =
+[
+    { make: "Toyota", model: "Camry", year: 2020, price: 24000 },
+    { make: "Honda", model: "Civic", year: 2019, price: 22000 }
+];
+function NewCar(carMake, carModel , carYear, carPrice)
+{
+    let newCar = { make: carMake, model: carModel, year:  carYear, price: carPrice };
+    cars.push(newCar);
+}
+NewCar("Ford", "Mustang", 2006, 3000);
+console.log(cars);
+
+function PriceUpdate(carMake, newPrice)
+{
+    for (let i = 0; i < cars.length; i++)
+    {
+        if (cars[i].model.toLowerCase() == carMake.toLowerCase())
+        {cars[i].price = newPrice};
+    }
+}
+PriceUpdate("Mustang", 6000)
+Display(cars);
+
+//Pet Details
+let pets =
+[
+    { name: "Rosco", type: "dog", age: 2 },
+    { name: "Tom", type: "cat", age: 3 },
+    { name: "Rio", type: "parrot", age: 1 },
+    { name: "Bugsbunny", type: "rabbit", age: 4 }
+];
+function AddPet(petName, petType, petAge)
+{
+    let petArray = {name: petName, type: petType, age: petAge};
+    pets.push(petArray);
+}
+AddPet("Daffy", "duck", 2);
+Display(pets);
